@@ -1,0 +1,146 @@
+% Preamble für Uni-Mitschriften
+% Stark inspiriert von https://github.com/gillescastel/university-setup/blob/master/preamble.tex
+%  ┌────────┐
+%  │ Basics │
+%  └────────┘
+\author{Maximilian Moeller} 
+% Umlaute
+\usepackage[utf8]{inputenc}
+% westeuropäische Codierung (verbessert Trennung und copy/paste)
+\usepackage[T1]{fontenc}
+% spezielle Sonderzeichen
+\usepackage{textcomp}
+% deutsches Sprachpaket
+\usepackage[ngerman, english]{babel}
+\usepackage{url}
+% Einbindung von Bildern
+\usepackage{graphicx}
+% Bilder auf der Titelseite
+\usepackage{titlepic}
+% verbesserte floating-Objekte (z.B. figures/tables)
+\usepackage{float}
+% verbesserter Schriftsatz (nicht sichtbare Abweichungen)
+\usepackage[]{microtype}
+% verbesserte Tabellen
+\usepackage{booktabs}
+% Kontrolle über enumerate, itemize und description
+\usepackage{enumitem}
+% PDF-Version 1.7
+\pdfminorversion=7
+% Platz zwischen Paragraphen
+\usepackage{parskip}
+% Keine Zeilennummern auf leeren Seiten
+\usepackage{emptypage}
+\usepackage{subcaption}
+% Text in mehreren Spalten
+\usepackage{multicol}
+% Mehr Farben
+\usepackage{xcolor}
+% Lorem ipsum mit \blindtext
+\usepackage[]{blindtext}
+% Ersetzt etwas durch nichts (debugging)
+\newcommand\hide[1]{}
+
+% ┌────────────┐
+% │ Mathematik │
+% └────────────┘
+% mathematische Pakete
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb, mathrsfs}
+% Terme streichen (optional mit Wert, z.B. Wert -> 0)
+\usepackage{cancel}
+% Bold math
+\usepackage{bm}
+% Shortcuts für Zahlenbereiche
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+
+% Mehr Sonderzeichen (z.B. Blitz oder eckige Doppelklammern)
+\usepackage{stmaryrd}
+% Widerspruch als Blitz
+\newcommand\contra{\scalebox{1.5}{$\lightning$}}
+\newcommand\defeq{\stackrel{\text{def}}{=}}
+
+% SI-Einheiten
+\usepackage{siunitx}  
+\sisetup{locale = DE}
+
+% ┌──────────────┐
+% │ Environments │
+% └──────────────┘
+% Kästen um Definitionen etc.
+\usepackage{mdframed}
+% Layout der Kästen
+\mdfsetup{skipabove=1em,skipbelow=0em}
+\theoremstyle{definition}
+\newmdtheoremenv[nobreak=true]{definition}{Definition}[section]
+\newmdtheoremenv[nobreak=true]{theorem}[definition]{Theorem}
+\newmdtheoremenv[nobreak=true]{prop}[definition]{Proposition}
+\newmdtheoremenv[nobreak=true]{lemma}[definition]{Lemma}
+\newmdtheoremenv[nobreak=true]{corollary}[definition]{Corollary}
+\newmdtheoremenv[nobreak=true]{axiom}{Axiom}
+\newtheorem*{example}{Example}
+\surroundwithmdframed[topline=false, bottomline=false, rightline=false, linewidth=4pt, linecolor=gray, backgroundcolor=lightgray]{example}
+\newtheorem*{notation}{Notation}
+\newtheorem*{note}{Note}
+\newtheorem*{problem}{Problem}
+
+% \lecture starts a new lecture
+% Usage:
+% \lecture{1}{Freitag, 16.04.}{Einleitung}
+% xifthen to adjust @lecture based on content of #3
+\usepackage{xifthen}
+% marginnote to make notes on the right side of the document
+\usepackage[]{marginnote}
+\makeatother
+\def\@lecture{}%
+\newcommand{\lecture}[3]{
+    \ifthenelse{\isempty{#3}}{%
+        \def\@lecture{VL #1}%
+		\marginnote{{VL #1,\\ #2}}
+    }{%
+		\def\@lecture{VL #1: #3}%
+		\marginnote{{VL #1, #3, #2}}
+    }%
+}
+
+% Kopf- und Fußzeilen
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\fancyhead[R]{\@lecture}
+\fancyhead[L]{\chaptername\ \thechapter : \leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+% nicht auf Titelseiten von Kapiteln
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+\makeatletter
+
+% Fix some spacing
+% http://tex.stackexchange.com/questions/22119/how-can-i-change-the-spacing-before-theorems-with-amsthm
+\def\thm@space@setup{%
+  \thm@preskip=\parskip \thm@postskip=0pt
+}
+\makeatother
+
+% ┌──────┐
+% │ tikz │
+% └──────┘
+\usepackage{tikz}
+\usetikzlibrary{arrows, automata}
+\tikzset{
+	->, % directed edges
+	>=stealth, % bold arrow heads
+	node distance = 2cm,
+	default/.style={circle, thin, draw=black, fill=gray!25}
+}
