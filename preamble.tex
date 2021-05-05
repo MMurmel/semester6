@@ -88,6 +88,10 @@
 \newtheorem*{note}{Note}
 \newtheorem*{problem}{Problem}
 
+% deutsche Titel
+\newmdenv[topline=false, bottomline=false, rightline=false, linewidth=4pt, linecolor=gray, backgroundcolor=lightgray, frametitle={Beispiel:}]{beispiel}
+\newmdenv[topline=false, bottomline=false, rightline=false, linewidth=2pt, linecolor=gray, frametitle={Merke:}]{merke}
+
 % \lecture starts a new lecture
 % Usage:
 % \lecture{1}{Freitag, 16.04.}{Einleitung}
@@ -97,7 +101,10 @@
 \usepackage[]{marginnote}
 \makeatother
 \def\@lecture{}%
+\newcounter{lecture}
 \newcommand{\lecture}[3]{
+	\stepcounter{lecture}
+
     \ifthenelse{\isempty{#3}}{%
         \def\@lecture{VL #1}%
 		\marginnote{{VL #1,\\ #2}}
