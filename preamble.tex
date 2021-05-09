@@ -51,7 +51,6 @@
 % Bold math
 \usepackage{bm}
 % Shortcuts für Zahlenbereiche
-\renewcommand\O{\ensuremath{\emptyset}}
 \newcommand\N{\ensuremath{\mathbb{N}}}
 \newcommand\Z{\ensuremath{\mathbb{Z}}}
 \newcommand\Q{\ensuremath{\mathbb{Q}}}
@@ -154,3 +153,10 @@
 	node distance = 2cm,
 	default/.style={circle, thin, draw=black, fill=gray!25}
 }
+
+% ┌───────────────┐
+% │ logic symbols │
+% └───────────────┘
+\renewcommand\vdash{\mathrel{|}\joinrel\mathrel{-}}
+\renewcommand\vDash{\mathrel{|}\joinrel\mathrel{=}}
+\renewcommand\Vdash{\mathrel{|}\joinrel\mathrel{|}\joinrel\mathrel{-}}
