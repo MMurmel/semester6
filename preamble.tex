@@ -78,21 +78,29 @@
 % Layout der Kästen
 \mdfsetup{skipabove=1em,skipbelow=0em}
 \theoremstyle{definition}
-\newmdtheoremenv[nobreak=true]{definition}{Definition}[section]
-\newmdtheoremenv[nobreak=true]{theorem}[definition]{Theorem}
-\newmdtheoremenv[nobreak=true]{prop}[definition]{Proposition}
-\newmdtheoremenv[nobreak=true]{lemma}[definition]{Lemma}
-\newmdtheoremenv[nobreak=true]{corollary}[definition]{Corollary}
-\newmdtheoremenv[nobreak=true]{axiom}{Axiom}
+\mdfdefinestyle{theoremstyle}{
+	linewidth=0.6pt,%
+	frametitlerule=true,%
+	frametitlerulewidth=0.4pt,%
+	frametitlebackgroundcolor=gray!30,
+	nobreak=true,
+	}
+\mdtheorem[style=theoremstyle]{definition}{Definition}[section]
+\mdtheorem[style=theoremstyle]{theorem}[definition]{Theorem}
+\mdtheorem[style=theoremstyle]{prop}[definition]{Proposition}
+\mdtheorem[style=theoremstyle]{lemma}[definition]{Lemma}
+\mdtheorem[style=theoremstyle]{corollary}[definition]{Corollary}
+\mdtheorem[style=theoremstyle]{axiom}{Axiom}
 \newtheorem*{example}{Example}
-\surroundwithmdframed[topline=false, bottomline=false, rightline=false, linewidth=4pt, linecolor=gray, backgroundcolor=lightgray]{example}
+\surroundwithmdframed[innertopmargin=0, topline=false, bottomline=false, rightline=false, linewidth=4pt, linecolor=gray, backgroundcolor=lightgray]{example}
 \newtheorem*{notation}{Notation}
 \newtheorem*{note}{Note}
 \newtheorem*{problem}{Problem}
 
 % deutsche Titel
-\newmdenv[topline=false, bottomline=false, rightline=false, linewidth=4pt, linecolor=gray, backgroundcolor=lightgray, frametitle={Beispiel:}]{beispiel}
-\newmdenv[topline=false, bottomline=false, rightline=false, linewidth=2pt, linecolor=gray, frametitle={Merke:}]{merke}
+\newmdenv[innertopmargin=0, topline=false, bottomline=false, rightline=false, linewidth=4pt, linecolor=gray, backgroundcolor=lightgray, frametitle={Beispiel:}]{beispiel}
+\newmdenv[innertopmargin=0, topline=false, bottomline=false, rightline=false, linewidth=2pt, linecolor=gray, frametitle={Merke:}]{merke}
+\mdtheorem[style=theoremstyle]{corollar}[definition]{Corollar}
 
 % \lecture starts a new lecture
 % Usage:
