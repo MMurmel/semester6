@@ -102,6 +102,20 @@
 \newmdenv[innertopmargin=0, topline=false, bottomline=false, rightline=false, linewidth=2pt, linecolor=gray, frametitle={Merke:}]{merke}
 \mdtheorem[style=theoremstyle]{corollar}[definition]{Corollar}
 
+\newenvironment{subproof}[1][\proofname]{%
+  \renewcommand{\qedsymbol}{$\blacksquare$}%
+  \begin{proof}[#1]%
+}{%
+  \end{proof}%
+}
+
+\newenvironment{subsubproof}[1][\proofname]{%
+  \renewcommand{\qedsymbol}{$\blacklozenge$}%
+  \begin{proof}[#1]%
+}{%
+  \end{proof}%
+}
+
 % \lecture starts a new lecture
 % Usage:
 % \lecture{1}{Freitag, 16.04.}{Einleitung}
