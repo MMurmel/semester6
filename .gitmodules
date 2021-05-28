@@ -1,9 +1,12 @@
 [submodule "advanced-logics"]
 	path = advanced-logics
 	url = git@github.com:MMurmel/advanced-logics.git
+	branch = main
 [submodule "description-logic"]
 	path = description-logic
 	url = git@github.com:MMurmel/description-logic.git
+	branch = main
 [submodule "computational-fluid-dynamics"]
 	path = computational-fluid-dynamics
 	url = git@github.com:MMurmel/computational-fluid-dynamics.git
+	branch = main
