@@ -61,8 +61,8 @@
 \newcommand\R{\ensuremath{\mathbb{R}}}
 \newcommand\C{\ensuremath{\mathbb{C}}}
 % Funktionen und variablen aus mehreren Buchstaben
-\newcommand{\var}[1]{\mathit{#1}}
-\newcommand{\func}[1]{\operatorname{#1}}
+\newcommand{\var}[1]{\mathit{\text{#1}}}
+\newcommand{\func}[1]{\operatorname{\text{#1}}}
 
 % Mehr Sonderzeichen (z.B. Blitz oder eckige Doppelklammern)
 \usepackage{stmaryrd}
@@ -73,6 +73,8 @@
 % :<=>
 \usepackage{colonequals}
 \newcommand\logeq{\ratio\Longleftrightarrow}
+% logical proof (inference rules)
+\usepackage[]{proof}
 
 % SI-Einheiten
 \usepackage{siunitx}  
@@ -178,7 +180,7 @@
 % │ tikz │
 % └──────┘
 \usepackage{tikz}
-\usetikzlibrary{arrows, automata}
+\usetikzlibrary{arrows, automata, positioning}
 \tikzset{
 	->, % directed edges
 	>=stealth, % bold arrow heads
